@@ -3,10 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "computing.psu.ac.th", pathname: "/**" },
+      {
+        protocol: "https",
+        hostname: "media.sweetwater.com",
+        pathname: "/**",
+      },
     ],
   },
-  /* config options here */
 };
 
 export default nextConfig;

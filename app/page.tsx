@@ -1,33 +1,65 @@
+import Link from "next/link";
+
 export default function WebApp() {
   return (
-    <div className="flex justify-center items-center h-screen bg-white ">
-      <div className="w-full max-w-lg  ">
-        {/* Main content area with green background */}
-        <div className="relative w-full h-48 bg-green-500">
-          {/* Left circle cutout */}
-          <div className="absolute top-1/4 left-0 w-8 h-16 bg-white rounded-r-full"></div>
+    <>
+      <></>
 
-          {/* Banner */}
-          <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-teal-100 border border-gray-800 text-black font-medium">
-            BANNER
-          </div>
-
-          {/* Close button */}
-          <div className="absolute top-1 right-1 w-5 h-5 text-sm flex items-center justify-center bg-black rounded-sm ">
-            X
-          </div>
-
-          {/* Centered text */}
-          <div className="absolute inset-0 flex justify-center items-center">
-            <div className="border border-dashed border-white text-white rounded px-4 py-2">
-              This is css position
-            </div>
-          </div>
-
-          {/* Bottom right cutout */}
-          <div className="absolute bottom-0 -right-0 w-16 h-8 bg-white rounded-tl-full"></div>
-        </div>
+      <Link
+        className="text-yellow-500 block text-center mb-16 border w-fit m-10"
+        href="/products"
+      >
+        Go to product page
+      </Link>
+      <Link
+        className="text-yellow-500 block text-center mb-16 border w-fit m-10"
+        href="/foo"
+      >
+        Go to Foo page
+      </Link>
+      <Link
+        className="text-yellow-500 block text-center mb-16 border w-fit m-10"
+        href="/foo/bar"
+      >
+        Go to Bar
+      </Link>
+      <Link
+        className="text-yellow-500 block text-center mb-16 border w-fit m-10"
+        href="/musicInstrument"
+      >
+        Go to Music Instrument Page
+      </Link>
+      <div className="w-[80%] border border-white rounded p-4">
+        <h1 className="text-5xl font-bold m-2 p-2 border border-black rounded">
+          Hello world
+        </h1>
+        <p className=" m-2 p-2 bg-gray-500/60 text-black border-black rounded">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum,
+          magnam.
+        </p>
+        <p className=" m-2 p-2 bg-green-500/60 text-black border-black rounded">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum,
+          magnam.
+        </p>
+        <p className="m-2 p-2 bg-yellow-500/60 text-black border-black rounded">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum,
+          magnam.
+        </p>
+        <p className="m-2  p-2 bg-orange-500/60 text-black border-black rounded">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
+          numquam saepe, eveniet perferendis odio voluptatem sapiente
+          necessitatibus optio illum laudantium laboriosam dolorum eum eius
+          provident vitae ea magnam blanditiis ab aliquid doloremque commodi
+          minus quia pariatur quod. Dignissimos quibusdam laboriosam deleniti,
+          deserunt reprehenderit debitis nobis qui quod possimus, sapiente ab
+          blanditiis hic. Mollitia ipsum atque in earum ab? At rem nulla
+          voluptatum consequatur a nesciunt reprehenderit suscipit distinctio
+          temporibus id eius sit vero, in repellendus illum, enim quae eos
+          dignissimos unde porro assumenda perspiciatis ad ullam. Inventore
+          deserunt placeat officiis, voluptate, vero omnis mollitia neque et
+          quos nesciunt facere minima!{" "}
+        </p>
       </div>
-    </div>
+    </>
   );
 }
