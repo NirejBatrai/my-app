@@ -1,16 +1,14 @@
-export default function Fetch() {
-  const profile = fetch("https://api.github.com/users/NawaratKhem");
-  console.log("Profile", profile);
-  profile
-    .then((res) => {
-      console.log("res", res);
-      return res.json();
-    })
-    .then((data) => {
-      console.log("data", data);
-    })
-    .catch((err) => {
-      console.log("err", err);
-    });
-  return <div>Fetch Api</div>;
+export default async function Fetch() {
+  const data = await fetch("https://api.github.com/users/NawaratKhem");
+  const profile = await data.json();
+  const image = profile.avatar_url;
+
+  return (
+    <div>
+      <h2>fetch Api</h2>
+      <div>{JSON.stringify(profile.login)}</div>
+      <div>{JSON.stringify(profile.id)}</div>
+      <img src={image} alt="" />
+    </div>
+  );
 }
