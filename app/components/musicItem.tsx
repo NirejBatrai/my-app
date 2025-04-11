@@ -1,50 +1,42 @@
+import React from "react";
 import Image from "next/image";
 
-export default function MusicItem({
-  index,
-  productName,
-  description,
-  image,
-  price,
-  isNew,
-}: {
-  index: number;
-  productName: string;
-  description: string;
-  image: string;
-  price: number;
-  isNew: boolean;
-}) {
+const MusicItem = ({ id, name, description, img, price, likes }) => {
   return (
     <div
-      key={index}
-      className="relative shadow-md rounded-lg border bg-white w-72 p-4 m-4 hover:scale-105 transition-transform duration-300 ease-in-out"
+      key={id}
+      className="w-64 relative border border-indigo-300 p-5 m-2 bg-neutral-100 rounded-xl shadow-sm 
+      transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
     >
-      <h2 className="font-semibold text-lg text-gray-800 mb-2 hover:text-blue-600 transition-colors duration-300">
-        {productName}
-      </h2>
-      <p className="text-sm text-gray-600 mb-3">{description}</p>
-      <p className="text-xl font-bold text-gray-900 mb-2">${price}</p>
-      {isNew && (
-        <span className="absolute top-2 left-2 bg-blue-500 text-white text-xs py-1 px-2 rounded-full shadow-md">
-          New
+      <h2 className="text-xl font-bold text-indigo-800 mb-1">{name}</h2>
+      {/* <Image
+        className="w-64 h-64 object-cover rounded-lg my-3 transition-transform duration-300 ease-in-out hover:scale-105"
+        src={img}
+        alt={name}
+        width={300}
+        height={300}
+      /> */}
+      <p className="text-sm text-gray-700 mb-2">{description}</p>
+
+      <div className="flex justify-between items-center mb-2">
+        <span className="text-lg font-semibold text-green-700">${price}</span>
+        <span className="flex items-center text-sm text-red-500 gap-1">
+          &#9829; {likes}
         </span>
-      )}
-      <div className="flex justify-center mb-3">
-        <Image
-          className="rounded-lg transform transition-all duration-300 hover:scale-110"
-          src={image}
-          width={120}
-          height={120}
-          alt={productName}
-        />
       </div>
-      <button className="w-full bg-orange-500 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-600 transition-all duration-300">
+
+      <button
+        className="w-full border bg-blue-300 px-3 py-1 rounded-2xl mt-1
+        hover:bg-blue-400 transition-all duration-300 text-sm font-medium"
+      >
         Buy Now
       </button>
-      <span className="absolute bottom-3 right-3 text-xs font-semibold text-gray-600 bg-amber-200 px-3 py-1 rounded-full shadow-lg">
-        #{index + 1}
+
+      <span className="absolute top-2 right-2 bg-blue-200 border border-blue-300 p-1 rounded-full w-7 h-7 flex items-center justify-center text-xs font-semibold text-gray-700">
+        #{id}
       </span>
     </div>
   );
-}
+};
+
+export default MusicItem;

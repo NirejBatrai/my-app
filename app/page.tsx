@@ -1,4 +1,5 @@
 import Link from "next/link";
+import C from "../app/property/page";
 
 export default function WebApp() {
   return (

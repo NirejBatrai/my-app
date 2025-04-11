@@ -1,157 +1,209 @@
-import MusicItem from "../components/musicItem";
-import Footer from "../components/Footer";
+"use client";
 
-export default function Music() {
-  const instruments = [
+import React, { useState } from "react";
+import MusicItem from "../components/musicItem";
+
+const Products = () => {
+  const [instruments, setInstruments] = useState([
     {
-      name: "Guitars",
-      description:
-        "Explore a wide range of acoustic, electric, and classical guitars for every skill level.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/ENCTEBGH.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 200,
-      like: 20,
-      is_new: true,
-    },
-    {
-      name: "Studio & Recording",
-      description:
-        "High-quality recording gear including audio interfaces, mixers, and monitors for home and pro studios.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/Arrow-small.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 350,
-      is_new: true,
-    },
-    {
-      name: "Drum & Percussion",
-      description:
-        "Acoustic and electronic drum kits, cymbals, and percussion instruments for all styles.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/LM402.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 500,
-      is_new: false,
-    },
-    {
-      name: "Bass",
-      description:
-        "Electric and acoustic bass guitars with punchy tone and smooth playability.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/PBassAPR3SB.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 400,
-      is_new: false,
-    },
-    {
-      name: "Keyboard & Synth",
-      description:
-        "From digital pianos to powerful synthesizers, find keys for performance and production.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/Matriarch.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 600,
-      is_new: true,
-    },
-    {
-      name: "Live Sound & Lights",
-      description:
-        "PA systems, stage lighting, and gear to power your live performances.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/flow8.jpg?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 750,
-      is_new: false,
-    },
-    {
-      name: "Software & Plug-ins",
-      description:
-        "Top-rated DAWs and sound plug-ins for music production and editing.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/ptstudioann.jpg?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 150,
-      is_new: true,
-    },
-    {
-      name: "DJ Equipment",
-      description:
-        "Mixers, controllers, turntables, and all essentials for DJs of every genre.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/ATLP120XUSBSV.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 450,
-      is_new: false,
-    },
-    {
-      name: "Microphone & Wireless",
-      description:
-        "Wired and wireless microphones for studio recording, live shows, and broadcasting.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/SM58-cat.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 200,
-      is_new: true,
-    },
-    {
-      name: "Band & Orchestra",
-      description:
-        "Traditional instruments for school bands and orchestras including brass, woodwinds, and strings.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/KingSlvFlTr.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 300,
-      is_new: false,
-    },
-    {
-      name: "Home Audio & Electronics",
-      description:
-        "Speakers, amplifiers, and smart devices to upgrade your home sound system.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/TourOneM2Bk.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 250,
-      is_new: true,
-    },
-    {
-      name: "Commercial Audio & Install",
-      description:
-        "Professional solutions for commercial sound systems and audio installations.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/Control28.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
+      id: 1,
+      name: "Acoustic Guitar",
+      description: "A classic instrument for all styles of music.",
       price: 1000,
-      is_new: false,
+      likes: 300,
+      img: "https://images.unsplash.com/photo-1588449668365-d15e397f6787?w=900&auto=format&fit=crop&q=60",
     },
     {
-      name: "Cables, Cases, Stands & More",
-      description:
-        "All the essential accessories like cables, cases, stands, and mounts to complete your setup.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/M4WP006.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 50,
-      is_new: true,
+      id: 2,
+      name: "Electric Guitar",
+      description: "Perfect for rock, blues, and metal.",
+      price: 1500,
+      likes: 150,
+      img: "https://images.unsplash.com/photo-1568193755668-aae18714a9f1?w=900&auto=format&fit=crop&q=60",
     },
     {
-      name: "Content Creators",
+      id: 3,
+      name: "Violin",
       description:
-        "Cameras, microphones, lighting, and streaming gear tailored for content creators.",
-      image:
-        "https://media.sweetwater.com/m/home/cats/PodMic.png?format=jpg&optimize=high&auto=webp&quality=70&width=101",
-      price: 300,
-      is_new: true,
+        "A beautiful string instrument used in orchestras and solo performances.",
+      price: 1300,
+      likes: 120,
+      img: "https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?w=900&auto=format&fit=crop&q=60",
     },
-  ];
+    {
+      id: 4,
+      name: "Piano",
+      description: "A versatile instrument great for solo or accompaniment.",
+      price: 3000,
+      likes: 90,
+      img: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=900&auto=format&fit=crop&q=60",
+    },
+    {
+      id: 5,
+      name: "Drum Set",
+      description: "The backbone of any band rhythm section.",
+      price: 4000,
+      likes: 10,
+      img: "https://images.unsplash.com/photo-1543443258-92b04ad5ec6b?w=900&auto=format&fit=crop&q=60",
+    },
+    {
+      id: 6,
+      name: "Saxophone",
+      description: "A jazzy wind instrument known for its expressive sound.",
+      price: 4000,
+      likes: 50,
+      img: "https://images.unsplash.com/photo-1623123776919-e5208e9b0b47?w=900&auto=format&fit=crop&q=60",
+    },
+    {
+      id: 7,
+      name: "Flute",
+      description:
+        "A soft and soothing wind instrument, often used in orchestras.",
+      price: 2600,
+      likes: 30,
+      img: "https://images.unsplash.com/photo-1710075554684-88f369e05e99?w=900&auto=format&fit=crop&q=60",
+    },
+  ]);
+
+  const [newInstrument, setNewInstrument] = useState({
+    name: "",
+    description: "",
+    price: 0,
+    likes: 0,
+    img: "",
+  });
+
+  function AddNewInstrument() {
+    if (!newInstrument.name.trim()) return;
+
+    const instrument = {
+      id: instruments.length + 1,
+      name: newInstrument.name,
+      description: newInstrument.description,
+      price: newInstrument.price,
+      likes: newInstrument.likes,
+      img: newInstrument.img,
+    };
+    setInstruments((prev) => [...prev, instrument]);
+    setNewInstrument({
+      name: "",
+      description: "",
+      price: 0,
+      likes: 0,
+      img: "",
+    });
+  }
 
   return (
-    <div>
-      <h1 className="font-bold text-2xl text-center my-4">Product</h1>
-      <div className="flex flex-wrap m-auto justify-center w-[80%] border rounded m-4 p-4 bg-slate-100 mb-6">
-        {instruments.map((product, index) => {
-          return (
+    <div className="bg-black-to-r from-slate-200 to-sky-700">
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="mt-16 text-3xl font-bold text-slate-100">
+          Musical Instruments
+        </h1>
+        <div className="max-w-sm mx-auto my-5 border p-5 rounded-lg shadow-lg">
+          <h1 className="text-3xl font-bold mb-4">Create New Instrument</h1>
+          <label className="text-2xl font-bold" htmlFor="name">
+            Name
+          </label>
+          <input
+            name="name"
+            className="border p-2 w-full rounded-2xl my-2"
+            type="text"
+            value={newInstrument.name}
+            onChange={(e) =>
+              setNewInstrument((prev) => ({
+                ...prev,
+                name: e.target.value,
+              }))
+            }
+          />
+          <label className="text-2xl font-bold" htmlFor="age">
+            Description
+          </label>
+          <input
+            name="age"
+            className="border p-2 w-full rounded-2xl my-2"
+            type="text"
+            value={newInstrument.description}
+            onChange={(e) =>
+              setNewInstrument((prev) => ({
+                ...prev,
+                description: e.target.value,
+              }))
+            }
+          />
+          <label className="text-2xl font-bold" htmlFor="email">
+            Price
+          </label>
+          <input
+            name="email"
+            className="border p-2 w-full rounded-2xl my-2"
+            type="number"
+            value={newInstrument.price}
+            onChange={(e) =>
+              setNewInstrument((prev) => ({
+                ...prev,
+                price: Number(e.target.value),
+              }))
+            }
+          />
+          <label className="text-2xl font-bold" htmlFor="salary">
+            Likes
+          </label>
+          <input
+            name="salary"
+            className="border p-2 w-full rounded-2xl my-2"
+            type="number"
+            value={newInstrument.likes}
+            onChange={(e) =>
+              setNewInstrument((prev) => ({
+                ...prev,
+                likes: Number(e.target.value),
+              }))
+            }
+          />
+          <label className="text-2xl font-bold" htmlFor="salary">
+            Image URL
+          </label>
+          <input
+            name="salary"
+            className="border p-2 w-full rounded-2xl my-2"
+            type="text"
+            value={newInstrument.img}
+            onChange={(e) =>
+              setNewInstrument((prev) => ({
+                ...prev,
+                img: e.target.value,
+              }))
+            }
+          />
+        </div>
+        <button
+          className=" border p-4 rounded-lg bg-orange-300 hover:bg-green-200 text-black mt-5"
+          onClick={AddNewInstrument}
+        >
+          Add New Musical Instrument
+        </button>
+        <div className="flex flex-wrap w-[80%] m-auto justify-center  my-10 p-5 border-2 border-black rounded-lg">
+          {instruments.map((instrument) => (
             <MusicItem
-              key={index}
-              index={index}
-              productName={product.name}
-              description={product.description}
-              image={product.image}
-              price={product.price}
-              isNew={product.is_new}
+              key={instrument.id}
+              id={instrument.id}
+              name={instrument.name}
+              description={instrument.description}
+              // img={instrument.img}
+              price={instrument.price}
+              likes={instrument.likes}
+              img={undefined}
             />
-          );
-        })}
+          ))}
+        </div>
       </div>
-
-      <Footer />
+      <footer className="bg-slate-300 text-center p-4">
+        --- Product footer ---
+      </footer>
     </div>
   );
-}
+};
+
+export default Products;
