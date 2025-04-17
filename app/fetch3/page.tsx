@@ -36,17 +36,17 @@ export default async function Page({
   if (paginatedPosts.length === 0) notFound();
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
+    <div className="max-w-2xl mx-auto px-4 py-6 rounded-lg shadow-md">
       <h1 className="text-3xl font-bold mb-6">Posts - Page {page}</h1>
 
-      <div className="space-y-6">
+      <div className="space-y-6 ">
         {paginatedPosts.map((post) => (
           <div
             key={post.id}
-            className="p-4 border rounded-lg shadow-sm hover:shadow-md transition"
+            className="p-4 border rounded-lg shadow-sm hover:shadow-md transition  bg-orange-800"
           >
             <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-            <p className="text-white">{post.body}</p>
+            <p className="text-white ">{post.body}</p>
           </div>
         ))}
       </div>
